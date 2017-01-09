@@ -1,0 +1,49 @@
+
+restaurant Attributes
+
+  - Name :string
+    - REQUIRED
+  - Cuisine :string [1]
+    - REQUIRED
+  - Location/address :string [1]
+    - REQUIRED
+  - Location City: string [1]
+    - REQUIRED
+  - Location State: string [1]
+    - REQUIRED
+  - Phone number :string  [1]
+    - REQUIRED
+  - Hours of operation :text [1 - text field]
+    - REQUIRED
+  - Menu [pdf upload] :string (refile-style)
+  - Website link :string [1]
+  - Dollar sign value of expense level ($$ vs $$$$) :integer
+
+  - has many votes
+  - has many pictures
+
+Voting/Review
+  - Belong to Restaurant
+  - Belong to User
+
+User
+  - omni-auth
+  - have many votes
+
+Pictures
+  - actual picture
+  - belong to restaurant
+
+Features
+  - Login/Logout
+  - Require Login to Vote
+  - Add Voting
+  - Require login to Create/Edit/Delete Restaurants (Authentication/Auth)
+  - Cuisine As Drop Down
+  - Price As Drop Down
+  - City As Drop Down
+  - City As Drop Down
+  - Search/Random select based on preferences (cuisine & price & city)
+  - Add pagination
+  - Google Maps
+  - Use Bootstrap Theme

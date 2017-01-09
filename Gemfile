@@ -27,7 +27,6 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
-
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -35,6 +34,15 @@ gem 'turbolinks', '~> 5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Authentication via oauth
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-facebook', '~> 4.0'
+
+# File uploading
+gem "refile", github: "gstark/refile", branch: "updates-for-rails-5", require: "refile/rails"
+gem "refile-postgres"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
