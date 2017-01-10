@@ -1,4 +1,3 @@
-!!!
 %html
   %head
     %meta{charset: "utf-8"}
@@ -16,6 +15,8 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+  %link{:href => "https://fonts.googleapis.com/css?family=Arima+Madurai|Bangers|Comfortaa|Lobster+Two|Merriweather+Sans|Montserrat+Alternates|Playball|Raleway|Sacramento|Varela", :rel => "stylesheet"}/
+
   %body
     %nav.navbar.navbar-fixed-top.welcome_nav{role: "navigation", class:"welcome_nav" }
       .container
@@ -43,32 +44,14 @@
             - else
               %li
                 = link_to 'Login with Github', auth_path(provider: 'github')
-          %ul.nav.navbar-nav.navbar-right
-            %li.navbar-text
-          = form_tag(restaurants_path, method: "GET", class: "navbar-form navbar-right") do
-            .form-group
-              = select_tag :state, options_for_select(Restaurant::STATES, params[:state]),prompt: 'State', class: 'form-control'
-            .form-group
-              = select_tag :city, options_for_select(Restaurant::CITIES, params[:city]), prompt: 'City', class: 'form-control'
-            .form-group
-              = select_tag :cuisine, options_for_select(Restaurant::CUISINES, params[:cuisine]),prompt: 'Chow', class: 'form-control'
-            = button_tag "Search", class: "btn btn-default"
-          -#
-          -# %ul.nav.navbar-nav.navbar-right
-          -#   - if logged_in?
-          -#     %li.navbar-text
-          -#       = current_user.name
-          -#     %li
-          -#       = link_to "Logout", logout_path
-          -#   - else
-          -#     %li
-          -#       = link_to 'Login with Github', auth_path(provider: 'github')
 
-    .container
-      - flash.each do |name, msg|
-        = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
-          %button.close{type: "button", data: {dismiss: "alert"} }
-            %span{aria: {hidden: "true"} } &times;
-            %span.sr-only Close
-          = msg
-      = yield
+.search
+  = image_tag("cover.jpg", class: "welcome_img")
+  = form_tag(restaurants_path, method: "GET", class: "navbar-form navbar-right,search_box_f") do
+    .form-group.search_font
+      = select_tag :state, options_for_select(Restaurant::STATES, params[:state]),prompt: 'State', class: 'form-control, box_size'
+    .form-group
+      = select_tag :city, options_for_select(Restaurant::CITIES, params[:city]), prompt: 'City', class: 'form-control, box_size'
+    .form-group
+      = select_tag :cuisine, options_for_select(Restaurant::CUISINES, params[:cuisine]), prompt: 'Chow',class: 'form-control, box_size'
+    = button_tag "Search", class: "btn btn-default sharp"
