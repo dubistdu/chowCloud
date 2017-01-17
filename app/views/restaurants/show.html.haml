@@ -1,38 +1,54 @@
-.page-header
-  = link_to restaurants_path, class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    Back
-  = link_to edit_restaurant_path(@restaurant), class: 'btn btn-primary' do
-    %span.glyphicon.glyphicon-pencil
-    Edit
-  %h1 Show restaurant
+.page-header.show
+  %h1= @restaurant.name
+  .edit-grp
+    = link_to restaurants_path, class: 'btn btn-default' do
+      %span.glyphicon.glyphicon-list-alt
+      Back
+    = link_to edit_restaurant_path(@restaurant), class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-pencil
+      Edit
 
-%dl.dl-horizontal
-  %dt Name:
-  %dd= @restaurant.name
-  %dt Address:
-  %dd= @restaurant.address
-  %dt City:
-  %dd= @restaurant.city
-  %dt State:
-  %dd= @restaurant.state
-  %dt Phone:
-  %dd= @restaurant.phone
-  %dt Website:
-  %dd= @restaurant.website
-  %dt Hours:
-  %dd= @restaurant.hours
-  %dt Price:
-  %dd= dollar_rating(@restaurant.price)
-  %dt Cuisine:
-  %dd= @restaurant.cuisine
-  %dt Menu:
-  %dd= @restaurant.menu_id
 
-#map
+  .container.restaurant_detail
+    .col-sm-12.col-md-offset-3
+      .image-container.img.res-img
+        = image_tag attachment_url(@restaurant.pictures.first, :image), size: "600x415"
+      .list-group-item.jaz-list-group-item
+        Address: &nbsp
+        = @restaurant.address
+      .list-group-item.jaz-list-group-item
+        City: &nbsp
+        = @restaurant.city
+        &nbsp&nbsp&nbsp&nbsp&nbsp
+        State: &nbsp
+        = @restaurant.state
+      .list-group-item.jaz-list-group-item
+        Phone: &nbsp
+        = @restaurant.phone
+      .list-group-item.jaz-list-group-item
+        Website: &nbsp
+        = link_to @restaurant.website, @restaurant.website, class: "weblink"
+      .list-group-item.jaz-list-group-item
+        Hours: &nbsp
+        = @restaurant.hours
+      .list-group-item.jaz-list-group-item
+        Price: &nbsp
+        = dollar_rating(@restaurant.price)
+      .list-group-item.jaz-list-group-item
+        Cuisine: &nbsp
+        = @restaurant.cuisine
+      .list-group-item.jaz-list-group-item
+        Menu: &nbsp
+        = @restaurant.menu_id
 
--# calling java script
-:javascript
-  $(document).on("ready", function() {
-    initMap(#{@restaurant.lat}, #{@restaurant.lng});
-  });
+- if @restaurant.lat == nil || @restaurant.lng == nil
+  .jumbotron
+    %h2 Sorry! Could not locate the address on the map
+-else
+  #map
+
+  -# calling java script
+  :javascript
+    $(document).on("ready", function() {
+      initMap(#{@restaurant.lat}, #{@restaurant.lng});
+    });

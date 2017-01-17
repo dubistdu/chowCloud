@@ -9,21 +9,22 @@
         .col-lg-4.col-md-6.col-sm-6.col-xs-12
           = link_to restaurant do
             .restaurantframe
-              .image-container.img
+              .image-container.img.jas_custom
                 .caption
-                  Hello
-                  - if restaurant.pictures.any?
-                    = image_tag attachment_url(restaurant.pictures.first, :image), size: "400x270", class: "restaurant_image_thumb"
-                  - else
-                    = image_tag("placeholder.jpg", size: "400x270", class: "restaurant_image_thumb")
-              .restaurantprofile
-                .container
-                  %h3
+                  %h2
                     = restaurant.name
-                  %p
+                  %h3
+                    = restaurant.cuisine
+                  %h3
                     = restaurant.city + ","
                     = restaurant.state
+                  %h3
+                    = restaurant.phone
 
+                - if restaurant.pictures.any?
+                  = image_tag attachment_url(restaurant.pictures.first, :image), size: "360x225", class: "restaurant_image_thumb"
+                - else
+                  = image_tag("placeholder.jpg", size: "360x225", class: "restaurant_image_thumb")
 
 -# .indexx
 -#
