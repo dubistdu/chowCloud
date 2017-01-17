@@ -16,55 +16,106 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    %script{src: "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_KEY"]}"}
   %body
-    %nav.navbar.navbar-fixed-top.welcome_nav{role: "navigation", class:"welcome_nav" }
-      .container
-        .navbar-header
-          %button.navbar-toggle.collapsed{type: "button", data: {toggle: "collapse", target: "#navbar"}, aria: {expanded: "false", controls: "navbar"} }
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to root_path, class: "navbar-brand, welcome_logo" do
-            = image_tag("CCLogo.png", size: "212x50")
-        #navbar.collapse.navbar-collapse.pull-right
-          %ul.nav.navbar-nav.welcome_ul
-            %li
-              = link_to "ADD NEW CHOW", new_restaurant_path
-            %li
-              = link_to "CHOW LIST", restaurants_path
-
-          %ul.nav.navbar-nav.navbar-right.welcome_ul
-            - if logged_in?
-              %li.navbar-text
-                = current_user.name.upcase
+    - if false
+      %nav.navbar.navbar-default
+        .container-fluid
+          / Brand and toggle get grouped for better mobile display
+          .navbar-header
+            %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.navbar-brand{:href => "#"} Brand
+          / Collect the nav links, forms, and other content for toggling
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav
+              %li.active
+                %a{:href => "#"}
+                  Link
+                  %span.sr-only (current)
               %li
-                = link_to "LOGOUT", logout_path
-            - else
+                %a{:href => "#"} Link
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  Dropdown
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => "#"} Action
+                  %li
+                    %a{:href => "#"} Another action
+                  %li
+                    %a{:href => "#"} Something else here
+                  %li.divider{:role => "separator"}
+                  %li
+                    %a{:href => "#"} Separated link
+                  %li.divider{:role => "separator"}
+                  %li
+                    %a{:href => "#"} One more separated link
+            %form.navbar-form.navbar-left
+              .form-group
+                %input.form-control{:placeholder => "Search", :type => "text"}/
+              %button.btn.btn-default{:type => "submit"} Submit
+            %ul.nav.navbar-nav.navbar-right
               %li
-                = link_to 'Login with Github', auth_path(provider: 'github')
-          %ul.nav.navbar-nav.navbar-right
-            %li.navbar-text
-          = form_tag(restaurants_path, method: "GET", class: "navbar-form navbar-right") do
-            .form-group
-              = select_tag :state, options_for_select(Restaurant::STATES, params[:state]),prompt: 'State', class: 'form-control'
-            .form-group
-              = select_tag :city, options_for_select(Restaurant::CITIES, params[:city]), prompt: 'City', class: 'form-control'
-            .form-group
-              = select_tag :cuisine, options_for_select(Restaurant::CUISINES, params[:cuisine]),prompt: 'Chow', class: 'form-control'
-            = button_tag "Search", class: "btn btn-default"
-          -#
-          -# %ul.nav.navbar-nav.navbar-right
-          -#   - if logged_in?
-          -#     %li.navbar-text
-          -#       = current_user.name
-          -#     %li
-          -#       = link_to "Logout", logout_path
-          -#   - else
-          -#     %li
-          -#       = link_to 'Login with Github', auth_path(provider: 'github')
+                %a{:href => "#"} Link
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  Dropdown
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => "#"} Action
+                  %li
+                    %a{:href => "#"} Another action
+                  %li
+                    %a{:href => "#"} Something else here
+                  %li.divider{:role => "separator"}
+                  %li
+                    %a{:href => "#"} Separated link
 
-    .container
+    - if true
+      %nav.navbar.navbar-default.navbar-fixed-top.welcome_nav{role: "navigation"}
+        .container-fluid
+          .navbar-header
+            %button.navbar-toggle.collapsed{type: "button", data: {toggle: "collapse", target: "#navbar"}, aria: {expanded: "false", controls: "navbar"} }
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            = link_to root_path, class: "navbar-brand, welcome_logo" do
+              = image_tag("CCLogo.png", size: "212x50")
+          #navbar.collapse.navbar-collapse.chow-nav
+            %ul.nav.navbar-nav.navbar-right
+              %li.popover_parent
+                = link_to "SEARCH", "javascript:void(0)"
+                .popover
+                  = form_tag(restaurants_path, method: "GET", class: "navbar-form navbar-right") do
+                    .form-group
+                      = select_tag :state, options_for_select(Restaurant::STATES, params[:state]),prompt: 'State', class: 'form-control'
+                    .form-group
+                      = select_tag :city, options_for_select(Restaurant::CITIES, params[:city]), prompt: 'City', class: 'form-control'
+                    .form-group
+                      = select_tag :cuisine, options_for_select(Restaurant::CUISINES, params[:cuisine]),prompt: 'Chow', class: 'form-control'
+                    = button_tag "Search", class: "btn btn-default src-btn"
+              %li
+                = link_to "ADD NEW CHOW", new_restaurant_path
+              %li
+                = link_to "CHOW LIST", restaurants_path
+              - if logged_in?
+                %li
+                  %p.navbar-text.chow-navbar-text
+                    = current_user.name.upcase
+                %li
+                  = link_to "LOGOUT", logout_path
+              - else
+                %li
+                  = link_to 'Login with Github', auth_path(provider: 'github')
+
+    .fluid-container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
           %button.close{type: "button", data: {dismiss: "alert"} }

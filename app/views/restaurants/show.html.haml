@@ -28,3 +28,11 @@
   %dd= @restaurant.cuisine
   %dt Menu:
   %dd= @restaurant.menu_id
+
+#map
+
+-# calling java script
+:javascript
+  $(document).on("ready", function() {
+    initMap(#{@restaurant.lat}, #{@restaurant.lng});
+  });
