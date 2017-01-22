@@ -15,54 +15,60 @@
   -# =image_tag ("cover.jpg", class: "welcome_img")
 
   .container.form_container
-    .col-md-12.fill_form
-      .header.chow
-        %h2 Add a new Chow!
-      .form-group
-        = f.label :name, class: 'col-sm-2 control-label'
-        .col-lg-8.col-md-8.col-sm-10
-          = f.text_field :name, class: 'form-control'
-      .form-group
-        = f.label :address, class: 'col-sm-2 control-label'
-        .col-lg-8.col-md-8.col-sm-10
-          = f.text_field :address, class: 'form-control'
-      .form-group
-        = f.label :city, class: 'col-sm-2 control-label'
-        .col-sm-3
-          = f.select :city, options_for_select(Restaurant::CITIES, @restaurant.city), class: 'form-control'
-        = f.label :state, class: 'col-sm-2 control-label'
-        .col-sm-3
-          = f.select :state, options_for_select(Restaurant::STATES, @restaurant.state), class: 'form-control'
-      .form-group
-        = f.label :phone, class: 'col-sm-2 control-label'
-        .col-lg-8.col-md-8.col-sm-10
-          = f.text_field :phone, class: 'form-control'
-      .form-group
-        = f.label :website, class: 'col-sm-2 control-label'
-        .col-lg-8.col-md-8.col-sm-10
-          = f.text_field :website, class: 'form-control'
-      .form-group
-        = f.label :hours, class: 'col-sm-2 control-label'
-        .col-lg-8.col-md-8.col-sm-10
-          = f.text_area :hours, class: 'form-control'
-      .form-group
-        = f.label :price, class: 'col-sm-2 control-label'
-        .col-sm-3
-          = f.select :price, options_for_select(Restaurant::PRICES, @restaurant.price), class: 'form-control'
-        = f.label :cuisine, class: 'col-sm-2 control-label'
-        .col-sm-3
-          = f.select :cuisine, options_for_select(Restaurant::CUISINES, @restaurant.cuisine), class: 'form-control'
-      .form-group
-        = f.label :menu, class: 'col-sm-2 control-label'
-        .col-lg-8.col-md-8.col-sm-10
-          = f.attachment_field :menu, class: 'form-control'
-      .form-group
-        .col-sm-offset-5.col-sm-8
-          = f.submit class: 'btn form'
-        -# .col-sm-offset-2.col-sm-3
-        -#   = link_to new_restaurant_path, class: 'btn new_list' do
-        -#     %span.glyphicon.glyphicon-plus
-        -#     New Restaurant
+    .row
+      .col-md-12.fill_form
+        .header.chow
+          %h2 Add a new Chow!
+        .form-group
+          = f.label :name, class: 'col-sm-2 control-label'
+          .col-lg-8.col-md-8.col-sm-10
+            = f.text_field :name, class: 'form-control'
+        .form-group
+          = f.label :address, class: 'col-sm-2 control-label'
+          .col-lg-8.col-md-8.col-sm-10
+            = f.text_field :address, class: 'form-control'
+
+        .form-group
+          = f.label :city, class: 'col-sm-2 control-label'
+          .col-sm-2
+            = f.select :city, options_for_select(Restaurant::CITIES, @restaurant.city), class: 'form-control'
+          = f.label :state, class: 'col-sm-1 control-label'
+          .col-sm-2
+            = f.select :state, options_for_select(Restaurant::STATES, @restaurant.state), class: 'form-control'
+          = f.label :zipcode, class: 'col-sm-1 control-label'
+          .col-sm-2
+            = f.text_field :zipcode, class: 'form-control'
+
+        .form-group
+          = f.label :phone, class: 'col-sm-2 control-label'
+          .col-lg-8.col-md-8.col-sm-10
+            = f.text_field :phone, class: 'form-control'
+        .form-group
+          = f.label :website, class: 'col-sm-2 control-label'
+          .col-lg-8.col-md-8.col-sm-10
+            = f.text_field :website, class: 'form-control'
+        .form-group
+          = f.label :hours, class: 'col-sm-2 control-label'
+          .col-lg-8.col-md-8.col-sm-10
+            = f.text_area :hours, class: 'form-control'
+        .form-group
+          = f.label :price, class: 'col-sm-2 control-label'
+          .col-sm-3
+            = f.select :price, options_for_select(Restaurant::PRICES, @restaurant.price), class: 'form-control'
+          = f.label :cuisine, class: 'col-sm-2 control-label'
+          .col-sm-3
+            = f.select :cuisine, options_for_select(Restaurant::CUISINES, @restaurant.cuisine), class: 'form-control'
+        .form-group
+          = f.label :menu, class: 'col-sm-2 control-label'
+          .col-lg-8.col-md-8.col-sm-10
+            = f.attachment_field :menu, class: 'form-control'
+        .form-group
+          .col-sm-offset-5.col-sm-8
+            = f.submit class: 'btn form'
+          -# .col-sm-offset-2.col-sm-3
+          -#   = link_to new_restaurant_path, class: 'btn new_list' do
+          -#     %span.glyphicon.glyphicon-plus
+          -#     New Restaurant
 
 
 -#

@@ -6,6 +6,7 @@ class Restaurant < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true
+  # validates :zipcode, presence: true
   validates :name, presence: true
   validates :phone, presence: true
   validates :cuisine, presence: true

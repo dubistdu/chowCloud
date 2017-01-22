@@ -23,6 +23,8 @@
           &nbsp&nbsp&nbsp&nbsp&nbsp
           State: &nbsp
           = @restaurant.state
+          ZIP: &nbsp
+          = @restaurant.zipcode
         .list-group-item.jaz-list-group-item
           Phone: &nbsp
           = @restaurant.phone
@@ -38,9 +40,9 @@
         .list-group-item.jaz-list-group-item
           Cuisine: &nbsp
           = @restaurant.cuisine
-        .list-group-item.jaz-list-group-item
-          Menu: &nbsp
-          = @restaurant.menu_id
+        -# .list-group-item.jaz-list-group-item
+        -#   Menu: &nbsp
+        -#   = @restaurant.menu_id
 
   - if @restaurant.lat == nil || @restaurant.lng == nil
     .jumbotron

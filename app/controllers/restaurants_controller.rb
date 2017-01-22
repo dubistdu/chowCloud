@@ -8,7 +8,6 @@ class RestaurantsController < ApplicationController
     @restaurants = @restaurants.where(city: params[:city]) if params[:city].present?
   end
 
-
   # GET /restaurants/1
   def show
     @restaurant = Restaurant.find(params[:id])
@@ -58,6 +57,6 @@ class RestaurantsController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :city, :state, :phone, :website, :hours, :price, :cuisine, :menu_id)
+      params.require(:restaurant).permit(:name, :address, :city, :state, :zipcode, :phone, :website, :hours, :price, :cuisine, :menu_id)
     end
 end

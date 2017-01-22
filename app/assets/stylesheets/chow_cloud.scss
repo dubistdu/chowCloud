@@ -27,8 +27,10 @@ body {
 .page-header.show {
   h1 {
     text-align: center;
+    color: rgba(255, 165, 0, 1);
+    font-family: 'Fjalla One', sans-serif;
   }
-  color: white;
+
   padding-top: 3%;
   background-image: image-url("streetback.jpg");
   background-size: auto;
