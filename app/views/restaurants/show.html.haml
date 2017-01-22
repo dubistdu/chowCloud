@@ -10,41 +10,43 @@
 
 
   .container.restaurant_detail
-    .col-sm-12.col-md-offset-3
-      .image-container.img.res-img
-        = image_tag attachment_url(@restaurant.pictures.first, :image), size: "600x415"
-      .list-group-item.jaz-list-group-item
-        Address: &nbsp
-        = @restaurant.address
-      .list-group-item.jaz-list-group-item
-        City: &nbsp
-        = @restaurant.city
-        &nbsp&nbsp&nbsp&nbsp&nbsp
-        State: &nbsp
-        = @restaurant.state
-      .list-group-item.jaz-list-group-item
-        Phone: &nbsp
-        = @restaurant.phone
-      .list-group-item.jaz-list-group-item
-        Website: &nbsp
-        = link_to @restaurant.website, @restaurant.website, class: "weblink"
-      .list-group-item.jaz-list-group-item
-        Hours: &nbsp
-        = @restaurant.hours
-      .list-group-item.jaz-list-group-item
-        Price: &nbsp
-        = dollar_rating(@restaurant.price)
-      .list-group-item.jaz-list-group-item
-        Cuisine: &nbsp
-        = @restaurant.cuisine
-      .list-group-item.jaz-list-group-item
-        Menu: &nbsp
-        = @restaurant.menu_id
+    .row
+      .col-sm-12.col-md-offset-3
+        .image-container.img.res-img
+          = image_tag attachment_url(@restaurant.pictures.first, :image), size: "600x400"
+        .list-group-item.jaz-list-group-item
+          Address: &nbsp
+          = @restaurant.address
+        .list-group-item.jaz-list-group-item
+          City: &nbsp
+          = @restaurant.city
+          &nbsp&nbsp&nbsp&nbsp&nbsp
+          State: &nbsp
+          = @restaurant.state
+        .list-group-item.jaz-list-group-item
+          Phone: &nbsp
+          = @restaurant.phone
+        .list-group-item.jaz-list-group-item
+          Website: &nbsp
+          = link_to @restaurant.website, @restaurant.website, class: "weblink"
+        .list-group-item.jaz-list-group-item
+          Hours: &nbsp
+          = @restaurant.hours
+        .list-group-item.jaz-list-group-item
+          Price: &nbsp
+          = dollar_rating(@restaurant.price)
+        .list-group-item.jaz-list-group-item
+          Cuisine: &nbsp
+          = @restaurant.cuisine
+        .list-group-item.jaz-list-group-item
+          Menu: &nbsp
+          = @restaurant.menu_id
 
-- if @restaurant.lat == nil || @restaurant.lng == nil
-  .jumbotron
-    %h2 Sorry! Could not locate the address on the map
--else
+  - if @restaurant.lat == nil || @restaurant.lng == nil
+    .jumbotron
+      %h2 Sorry! Could not locate the address on the map
+  -else
+
   #map
 
   -# calling java script

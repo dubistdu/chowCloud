@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :authenticate!, except: [:index, :show]
   # GET /restaurants
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.order("created_at DESC").page(params[:page]).per(9)
     @restaurants = @restaurants.where(cuisine: params[:cuisine]) if params[:cuisine].present?
     @restaurants = @restaurants.where(state: params[:state]) if params[:state].present?
     @restaurants = @restaurants.where(city: params[:city]) if params[:city].present?

@@ -1,0 +1,50 @@
+.welcome_ul {
+  padding-top: 5px;
+  padding-bottom: 3px;
+}
+.welcome_nav {
+  padding-bottom: 8px;
+  border-bottom: 5px solid orange;
+}
+
+.chow-nav ul {
+  padding-top: 9px;
+}
+
+.welcome_logo {
+  position: absolute;
+  margin-top: 20px;
+}
+
+// welcome serch box
+
+.search {
+  position: relative;
+  form {
+    position: absolute;
+    top: 300px;
+    width: 660px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+.box_size {
+  width: 160px;
+  height: 80px;
+  border: 1px;
+  radius: 0;
+  background-color: rgba(255,255,255,0.8);
+  color:#212121;
+}
+
+
+.btn.sharp {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  background-color: rgba(154, 36, 24, 0.9);    //rgba(255, 165, 0, 1)
+  border:none;
+  color:white;
+}
