@@ -13,7 +13,7 @@
     .row
       .col-sm-12.col-md-offset-3
         .image-container.img.res-img
-        - if @restaurant.pictures.any?
+        - if @www.frestaurant.pictures.any?
           = image_tag attachment_url(@restaurant.pictures.first, :image), size: "600x400"
         - else
           = image_tag("placeholder.jpg", size: "600x400")
