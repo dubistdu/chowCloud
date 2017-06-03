@@ -14,24 +14,24 @@
 ## Making of the app
 - Ruby on rails, Bootstrap (No theme/ custom designed using photoshop), JS, jquery, Haml, scss
 
-### - API
+#### - API
   google
 
-### - Gems
+#### - Gems
   omniauth-github
 
-### - Model
+#### - Model
   picture
   restaurant
   user
   geocode
 
-### - Controller
+#### - Controller
   restaurant
   session
   pages
 
 
-# The app
+## The app
 
 ![screenshot](chowcloud.gif)  
