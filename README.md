@@ -18,20 +18,20 @@
   google
 
 #### - Gems
-  omniauth-github
-  kaminari
-  refile
+  * omniauth-github
+  * kaminari
+  * refile
 
 #### - Model
-  picture
-  restaurant
-  user
-  geocode
+  * picture
+  * restaurant
+  * user
+  * geocode
 
 #### - Controller
-  restaurant
-  session
-  pages
+  * restaurant
+  * session
+  * pages
 
 
 ## The app
