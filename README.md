@@ -19,6 +19,8 @@
 
 #### - Gems
   omniauth-github
+  kaminari
+  refile
 
 #### - Model
   picture
